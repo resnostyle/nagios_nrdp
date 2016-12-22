@@ -65,7 +65,7 @@ module Nagios
         http.use_ssl = true
         http.verify_mode = OpenSSL::SSL::VERIFY_PEER
       end
-      request = Net::HTTP::Post.new(the_uri.request_uri + '/')
+      request = Net::HTTP::Post.new(the_uri.request_uri)
       request.set_form_data(token: token, cmd: 'submitcheck', XMLDATA: payload)
       request['Accept'] = 'text/*'
       request['User-Agent'] = 'NrdpClient/1.0'
